@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -26,7 +27,7 @@ app.use((req,res,next)=>{
 	
 });
 app.use(express.static(__dirname +'/public'));
-app.use((req,res,next)=>{
+/* app.use((req,res,next)=>{
 	res.render('maintainance.hbs',{
 		
 		downTimeMessage:'Site is under maintainance!'
@@ -34,7 +35,7 @@ app.use((req,res,next)=>{
 	});											
 		
 	
-});
+}); */
 
 hbs.registerHelper('getCurrentFullYear',()=>{
 	
@@ -87,7 +88,7 @@ app.get('/bad',(req,res)=>{
 
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
 	
-	console.log('Server is up on port 3000');
+	console.log(`Server is up on port ${port}` );
 });
