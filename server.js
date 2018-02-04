@@ -77,6 +77,18 @@ app.get('/about',(req,res)=>{
 	});
 	
 });
+
+app.get('/projects',(req,res)=>{
+	res.render('projects.hbs',{
+		
+		pageTitle : 'Portfolio page',
+		projectsMessage:'Thank you for visiting my portfolio'
+	});
+	
+});
+
+
+
 app.get('/bad',(req,res)=>{
 	
 	res.send({
